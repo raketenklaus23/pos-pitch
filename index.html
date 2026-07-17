@@ -337,6 +337,8 @@
     .btn-save:hover { background: #7da46a; }
     .btn-reset { background: transparent; color: #777; border: 1px solid #35372d; border-radius: 7px; padding: 11px 18px; font-size: 13px; cursor: pointer; }
     .btn-reset:hover { color: #aaa; }
+    .btn-export { background: #2a3a24; color: var(--gold); border: 1px solid var(--gold); border-radius: 7px; padding: 11px 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
+    .btn-export:hover { background: #354a2c; }
     .btn-close { background: transparent; color: #555; border: 1px solid #2c2e24; border-radius: 7px; padding: 11px 18px; font-size: 13px; cursor: pointer; margin-left: auto; }
     .btn-close:hover { color: #888; }
   </style>
@@ -543,6 +545,7 @@
 
     <div class="editor-actions">
       <button class="btn-save" onclick="saveAll()">Speichern & Schließen</button>
+      <button class="btn-export" onclick="exportToFile()">&#8595; Als index.html herunterladen</button>
       <button class="btn-reset" onclick="resetAll()">Auf Standard zurücksetzen</button>
       <button class="btn-close" onclick="closeEditor()">Schließen ohne Speichern</button>
     </div>
@@ -685,6 +688,41 @@
     });
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     closeEditor();
+  }
+
+  function exportToFile() {
+    // Aktuelle Editorwerte in DOM schreiben
+    FIELDS.forEach(([elId, inputId, isHtml, allInstances]) => {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      applyField(elId, input.value, isHtml, allInstances);
+    });
+
+    // Editor kurz ausblenden damit er nicht im Export landet
+    editorEl.classList.remove('open');
+    document.body.classList.remove('editor-open');
+
+    let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+    // DEFAULT_DUR im Script auf aktuelle Dauer setzen
+    html = html.replace(
+      /const DEFAULT_DUR\s*=\s*\d+;/,
+      'const DEFAULT_DUR  = ' + SLIDE_DURATION + ';'
+    );
+
+    // Editor wieder öffnen
+    editorEl.classList.add('open');
+    document.body.classList.add('editor-open');
+
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = 'index.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 
   function resetAll() {
