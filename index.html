@@ -54,6 +54,19 @@
     .dot.active { background: var(--gold); }
 
     /* ════════════════════════════════
+       PIKTOGRAMM — Hintergrund-Wasserzeichen
+    ════════════════════════════════ */
+    .slide:not(#s1)::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('piktogramm.png') center 48% / 72vh no-repeat;
+      mix-blend-mode: multiply;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ════════════════════════════════
        CHROME — Header & Footer
        (auf allen Slides außer S1)
     ════════════════════════════════ */
@@ -61,36 +74,57 @@
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
       pointer-events: none;
+      z-index: 1;
     }
 
     .chrome-top {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 28px 56px 0;
-      border-bottom: none;
+      display: flex; align-items: flex-end;
+      padding: 22px 48px 0 44px;
     }
 
-    .chrome-top-logo {
-      display: flex; align-items: center;
+    /* Schriftzug Hörakustik Lindenthal */
+    .chrome-brand {
+      display: flex; flex-direction: column;
+      line-height: 1;
+      width: 62.5vw;
+      flex-shrink: 0;
     }
 
-    .chrome-top-logo img {
-      height: 126px; width: auto;
-      border-radius: 14px;
+    .brand-line-top {
+      font-size: 3.0vw;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--cream);
+      letter-spacing: 0.32em;
+      opacity: 0.88;
+      margin-bottom: 0.05em;
+    }
+
+    .brand-line-main {
+      font-size: 6.5vw;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.18em;
+      line-height: 1;
     }
 
     .chrome-top-line {
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(212,168,48,0) 0%, rgba(212,168,48,0.4) 40%, rgba(212,168,48,0.4) 60%, rgba(212,168,48,0) 100%);
-      margin: 0 40px;
+      background: linear-gradient(90deg, rgba(212,168,48,0.3) 0%, rgba(212,168,48,0.5) 60%, rgba(212,168,48,0) 100%);
+      margin: 0 28px 6px 28px;
+      align-self: flex-end;
     }
 
     .chrome-top-tag {
-      font-size: 0.85vw;
+      font-size: 1.0vw;
       font-style: italic;
       color: var(--gold);
-      opacity: 0.8;
-      letter-spacing: 0.04em;
+      opacity: 0.9;
+      letter-spacing: 0.06em;
+      align-self: flex-end;
+      padding-bottom: 6px;
+      white-space: nowrap;
     }
 
     .chrome-spacer { flex: 1; }
@@ -348,8 +382,9 @@
   <div class="slide" id="s2" style="background: var(--bg);">
     <div class="slide-chrome">
       <div class="chrome-top">
-        <div class="chrome-top-logo">
-          <img src="logo_header.jpg" alt="Hörakustik Lindenthal">
+        <div class="chrome-brand">
+          <span class="brand-line-top">Hörakustik</span>
+          <span class="brand-line-main">Lindenthal</span>
         </div>
         <div class="chrome-top-line"></div>
         <span class="chrome-top-tag">Aus Köln. Für Köln.</span>
@@ -373,8 +408,9 @@
   <div class="slide" id="s3" style="background: var(--bg);">
     <div class="slide-chrome">
       <div class="chrome-top">
-        <div class="chrome-top-logo">
-          <img src="logo_header.jpg" alt="Hörakustik Lindenthal">
+        <div class="chrome-brand">
+          <span class="brand-line-top">Hörakustik</span>
+          <span class="brand-line-main">Lindenthal</span>
         </div>
         <div class="chrome-top-line"></div>
         <span class="chrome-top-tag">Aus Köln. Für Köln.</span>
@@ -398,8 +434,9 @@
   <div class="slide" id="s4" style="background: var(--bg);">
     <div class="slide-chrome">
       <div class="chrome-top">
-        <div class="chrome-top-logo">
-          <img src="logo_header.jpg" alt="Hörakustik Lindenthal">
+        <div class="chrome-brand">
+          <span class="brand-line-top">Hörakustik</span>
+          <span class="brand-line-main">Lindenthal</span>
         </div>
         <div class="chrome-top-line"></div>
         <span class="chrome-top-tag">Aus Köln. Für Köln.</span>
@@ -436,8 +473,9 @@
   <div class="slide" id="s5" style="background: var(--bg);">
     <div class="slide-chrome">
       <div class="chrome-top">
-        <div class="chrome-top-logo">
-          <img src="logo_header.jpg" alt="Hörakustik Lindenthal">
+        <div class="chrome-brand">
+          <span class="brand-line-top">Hörakustik</span>
+          <span class="brand-line-main">Lindenthal</span>
         </div>
         <div class="chrome-top-line"></div>
         <span class="chrome-top-tag">Aus Köln. Für Köln.</span>
