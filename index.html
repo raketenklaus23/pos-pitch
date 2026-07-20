@@ -242,6 +242,36 @@
     }
 
     /* ════════════════════════════════
+       SLIDE 6 — OTOPLASTIKEN
+    ════════════════════════════════ */
+    #s6 .oto-split {
+      display: flex; width: 100%; flex: 1;
+      align-items: stretch;
+    }
+
+    #s6 .oto-text {
+      flex: 1.05;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 2vh 2vw 4vh 8vw;
+      position: relative;
+    }
+
+    #s6 .oto-img-wrap {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 4vh 5vw 4vh 1vw;
+    }
+
+    #s6 .oto-img-wrap img {
+      max-height: 74vh;
+      max-width: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 12px 40px rgba(0,0,0,0.35));
+    }
+
+    /* ════════════════════════════════
        SLIDE 5 — LÖSUNG (highlights)
     ════════════════════════════════ */
     .solution-highlights {
@@ -471,6 +501,50 @@
     </div>
   </div>
 
+
+  <!-- ════ SLIDE 6: OTOPLASTIKEN ════ -->
+  <div class="slide" id="s6" style="background: var(--bg);">
+    <div class="slide-chrome">
+      <div class="chrome-top">
+        <div class="chrome-top-logo">
+          <img src="logo_header.jpg" alt="Hörakustik Lindenthal">
+        </div>
+        <div class="chrome-top-line"></div>
+        <span class="chrome-top-tag">Aus Köln. Für Köln.</span>
+      </div>
+      <div class="chrome-spacer"></div>
+      <div class="chrome-footer">
+        <div class="chrome-bottom-line"></div>
+        <span class="chrome-footer-text">Dürener Str. 192 · 50931 Köln-Lindenthal · 0221 201 999 54 · ha-lindenthal.de</span>
+      </div>
+    </div>
+    <div class="oto-split">
+      <div class="oto-text">
+        <span class="slide-number">05</span>
+        <span class="slide-label" id="s6-label">Individuell & Exklusiv</span>
+        <div class="gold-rule left"></div>
+        <h2 class="slide-headline" id="s6-h2">Außergewöhnliche<br>Otoplastiken –<br><em>für jeden Anspruch.</em></h2>
+        <div class="pain-list">
+          <div class="pain-item">
+            <div class="pain-icon"></div>
+            <span class="pain-text" id="ot1"><strong>Unsichtbare Domes</strong> – superkomfortabel, diskret, für jeden Alltag geeignet</span>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"></div>
+            <span class="pain-text" id="ot2"><strong>Selbstgefertigte Maßotoplastiken</strong> – in allen Varianten, perfekt angepasst</span>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"></div>
+            <span class="pain-text" id="ot3"><strong>Das Nonplusultra: Titan-Otoplastiken</strong> – klanglich überragend, leicht, langlebig und einzigartig</span>
+          </div>
+        </div>
+      </div>
+      <div class="oto-img-wrap">
+        <img src="20240912a_Marketing_Foto_SE-TITAN-FASHION-Piercing-weiße-Steine-Packshot-Web.png" alt="Titan-Otoplastiken">
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="dots" id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
@@ -531,6 +605,15 @@
       <div class="editor-row"><label>Highlight 3</label><input type="text" id="e-h3" value="&lt;strong&gt;Mehr Lebensqualität&lt;/strong&gt;messbar und spürbar"></div>
     </div>
 
+    <div class="editor-section">
+      <h2>Slide 6 — Otoplastiken</h2>
+      <div class="editor-row"><label>Label</label><input type="text" id="e-s6-label" value="Individuell &amp; Exklusiv"></div>
+      <div class="editor-row"><label>Überschrift</label><textarea id="e-s6-h2" rows="3">Außergewöhnliche&lt;br&gt;Otoplastiken –&lt;br&gt;&lt;em&gt;für jeden Anspruch.&lt;/em&gt;</textarea></div>
+      <div class="editor-row"><label>Punkt 1</label><input type="text" id="e-ot1" value="&lt;strong&gt;Unsichtbare Domes&lt;/strong&gt; – superkomfortabel, diskret, für jeden Alltag geeignet"></div>
+      <div class="editor-row"><label>Punkt 2</label><input type="text" id="e-ot2" value="&lt;strong&gt;Selbstgefertigte Maßotoplastiken&lt;/strong&gt; – in allen Varianten, perfekt angepasst"></div>
+      <div class="editor-row"><label>Punkt 3</label><input type="text" id="e-ot3" value="&lt;strong&gt;Das Nonplusultra: Titan-Otoplastiken&lt;/strong&gt; – klanglich überragend, leicht, langlebig und einzigartig"></div>
+    </div>
+
     <div class="editor-actions">
       <button class="btn-save" onclick="saveAll()">Speichern &amp; Schließen</button>
       <button class="btn-export" onclick="exportToFile()">↓ Als index.html herunterladen</button>
@@ -563,6 +646,11 @@
     ['h1',          'e-h1',       true,  false],
     ['h2',          'e-h2',       true,  false],
     ['h3',          'e-h3',       true,  false],
+    ['s6-label',    'e-s6-label', false, false],
+    ['s6-h2',       'e-s6-h2',   true,  false],
+    ['ot1',         'e-ot1',      true,  false],
+    ['ot2',         'e-ot2',      true,  false],
+    ['ot3',         'e-ot3',      true,  false],
   ];
 
   // ── SLIDESHOW ──
