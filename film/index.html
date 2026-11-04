@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schaufenster-Film</title>
+<link rel="preload" href="assets/fonts/SourceSerif4.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/SourceSerif4-Italic.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="film.css">
+</head>
+<body>
+<!--
+  Schaufenster-Film Hörakustik Lindenthal
+  Tasten: Leertaste = Pause · ← / → = Szene zurück/vor · 1–5 = Kapitel · 0 = Anfang · F = Vollbild · H = Hilfe
+  URL-Parameter: ?t=120 (Startzeit in s) · ?render (Einzelbild-Modus für MP4-Export)
+-->
+<div id="stage">
+  <canvas id="fx"></canvas>
+
+  <!-- ═══════════════ INTRO: Logo ═══════════════ -->
+  <section class="scene" data-id="intro" data-dur="15" data-out="blur" data-sweep="11.6">
+    <div class="logo-wrap" id="introLogo"><img class="logo-big" src="assets/logo/HAL_Logo_3D_transparent.png" alt="Hörakustik Lindenthal – Aus Köln. Für Köln."></div>
+    <div class="vline" style="left:985px;top:330px;height:420px" data-a="growy" data-t="7.0" data-d="1.4"></div>
+    <div class="intro-text">
+      <div class="h1" style="font-size:86px">
+        <span class="ln"><i data-a="rise" data-t="7.5">Ihr Spezialist für</i></span>
+        <span class="ln"><i data-a="rise" data-t="7.7"><em class="g">natürliche</em> und</i></span>
+        <span class="ln"><i data-a="rise" data-t="7.9"><em class="g">audiophile</em></i></span>
+        <span class="ln"><i data-a="rise" data-t="8.1">Anpassungen.</i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STING → KI ═══════════════ -->
+  <section class="scene" data-id="st1" data-hook="sting" data-dur="4.5" data-out="zoom" data-flash="0" data-sweep="2.4">
+    <img class="sting-logo" data-a="blur" data-t="0.2" data-d="1.4" src="assets/logo/HAL_Logo_3D_transparent.png" alt="">
+  </section>
+
+  <!-- ═══════════════ KAPITEL 1: Siegeszug der KI ═══════════════ -->
+  <section class="scene" data-id="k1" data-dur="14" data-chapter="1" data-bg="net" data-out="fade">
+    <div class="k1-head">
+      <span class="lbl" data-a="track" data-t="6.3" data-ls="0.25">EUHA 2026 · Die Neuheiten</span>
+      <div class="h2" style="margin-top:18px;font-size:84px"><span class="ln"><i data-a="rise" data-t="6.6">Der Siegeszug der</i></span></div>
+    </div>
+    <div class="k1-euha" data-a="track" data-t="4.3" data-d="1.4" data-ls="0.55" data-o="5.7" data-oa="blur" data-od="0.5">Hörgeräte <em>—</em> Highlights</div>
+    <div class="k1-sub" style="top:850px">
+      <div class="sub"><span class="ln"><i data-a="rise" data-t="9.0">Die neuesten Hörgeräte der diesjährigen EUHA – <em class="g">schon jetzt hier verfügbar.</em></i></span></div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="k2" data-hook="dev" data-dur="9.5" data-chapter="1" data-bg="net viz" data-out="left" data-flash="0">
+    <div class="dev-ghost" data-ghost>OTICON&nbsp;&nbsp;OTICON&nbsp;&nbsp;OTICON</div>
+    <div class="dev-grid">
+      <div class="dev-visual">
+        <div class="halo" data-a="zoom" data-t="0.05" data-d="1.2"><div class="halo-ring" data-spin></div><div class="halo-ring2"></div></div>
+        <div class="dev-shadow" data-a="fade" data-t="0.8"></div>
+        <div class="dev-float" data-float style="perspective:1400px"><img class="dev-img" data-a="dev3d" data-t="0.1" data-d="1.4" src="assets/img/oticon-reveal.webp" alt="Oticon Reveal"></div>
+      </div>
+      <div class="dev-meta">
+        <span class="lbl" data-a="left" data-t="0.3">01 — EUHA 2026 Highlight</span>
+        <span class="dev-brand" data-a="up" data-t="0.4">Oticon</span>
+        <h2 class="dev-model"><span class="ln"><i data-a="rise" data-t="0.5">Reveal</i></span><span class="ln"><i data-a="rise" data-t="0.62"><em class="g">Dual AI</em></i></span></h2>
+        <p class="dev-tag" data-a="wipe" data-t="1.0">Zwei KI-Systeme. Gleichzeitig.</p>
+        <ul class="facts">
+          <li data-a="up" data-t="2.0">Speech AI und Context AI arbeiten unabhängig und durchgehend</li>
+          <li data-a="up" data-t="2.5">Bis zu 25 dB mehr verfügbare Verstärkung als führende Wettbewerbsgeräte</li>
+          <li data-a="up" data-t="3.0">Entwickelt und produziert in Dänemark</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine" data-a="fade" data-t="2.4">Herstellerangaben, jeweils höchste Ausstattungsstufe</p>
+  </section>
+
+  <section class="scene" data-id="k3" data-hook="dev" data-dur="9.5" data-chapter="1" data-bg="net viz" data-out="left" data-flash="0">
+    <div class="dev-ghost" data-ghost>PHONAK&nbsp;&nbsp;PHONAK&nbsp;&nbsp;PHONAK</div>
+    <div class="dev-grid">
+      <div class="dev-visual">
+        <div class="halo" data-a="zoom" data-t="0.05" data-d="1.2"><div class="halo-ring" data-spin></div><div class="halo-ring2"></div></div>
+        <div class="dev-shadow" data-a="fade" data-t="0.8"></div>
+        <div class="dev-float" data-float style="perspective:1400px"><img class="dev-img" data-a="dev3d" data-t="0.1" data-d="1.4" src="assets/img/phonak-eon.webp" alt="Phonak Audéo EON Sphere"></div>
+      </div>
+      <div class="dev-meta">
+        <span class="lbl" data-a="left" data-t="0.3">02 — EUHA 2026 Highlight</span>
+        <span class="dev-brand" data-a="up" data-t="0.4">Phonak</span>
+        <h2 class="dev-model"><span class="ln"><i data-a="rise" data-t="0.5">Audéo EON</i></span><span class="ln"><i data-a="rise" data-t="0.62"><em class="g">Sphere</em></i></span></h2>
+        <p class="dev-tag" data-a="wipe" data-t="1.0">Kleiner. Leichter. Ausdauernder.</p>
+        <ul class="facts">
+          <li data-a="up" data-t="2.0">HYPERSONIC-Chip mit Spheric Speech Clarity 3.0</li>
+          <li data-a="up" data-t="2.5">Rund 25 % kleiner und 20 % leichter als die Vorgängergeneration</li>
+          <li data-a="up" data-t="3.0">Bis zu 38 Stunden Akkulaufzeit pro Ladung</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine" data-a="fade" data-t="2.4">Herstellerangaben, jeweils höchste Ausstattungsstufe</p>
+  </section>
+
+  <section class="scene" data-id="k4" data-hook="dev" data-dur="9.5" data-chapter="1" data-bg="net viz" data-out="blur" data-flash="0">
+    <div class="dev-ghost" data-ghost>SIGNIA&nbsp;&nbsp;SIGNIA&nbsp;&nbsp;SIGNIA</div>
+    <div class="dev-grid">
+      <div class="dev-visual">
+        <div class="halo" data-a="zoom" data-t="0.05" data-d="1.2"><div class="halo-ring" data-spin></div><div class="halo-ring2"></div></div>
+        <div class="dev-shadow" data-a="fade" data-t="0.8"></div>
+        <div class="dev-float" data-float style="perspective:1400px"><img class="dev-img" data-a="dev3d" data-t="0.1" data-d="1.4" src="assets/img/signia-max.webp" alt="Signia Pure Charge&amp;Go MaX" style="max-height:520px"></div>
+      </div>
+      <div class="dev-meta">
+        <span class="lbl" data-a="left" data-t="0.3">03 — EUHA 2026 Highlight</span>
+        <span class="dev-brand" data-a="up" data-t="0.4">Signia</span>
+        <h2 class="dev-model"><span class="ln"><i data-a="rise" data-t="0.5">Pure Charge&amp;Go</i></span><span class="ln"><i data-a="rise" data-t="0.62"><em class="g">MaX</em></i></span></h2>
+        <p class="dev-tag" data-a="wipe" data-t="1.0">Vier KI-Netzwerke. Eine Klangszene.</p>
+        <ul class="facts">
+          <li data-a="up" data-t="2.0">Folgt mehreren Gesprächspartnern gleichzeitig</li>
+          <li data-a="up" data-t="2.5">Own Voice Processing – natürliche eigene Stimme</li>
+          <li data-a="up" data-t="3.0">Bis zu 30 Stunden Akkulaufzeit ohne Streaming</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine" data-a="fade" data-t="2.4">Herstellerangaben, jeweils höchste Ausstattungsstufe</p>
+  </section>
+
+  <section class="scene" data-id="k5" data-dur="9" data-chapter="1" data-bg="net rings" data-out="blur" data-sweep="7.0">
+    <div class="center" style="padding-bottom:30px">
+      <div class="trio">
+        <figure data-a="up" data-t="0.2" data-d="1.2"><img src="assets/img/oticon-reveal.webp" alt=""><figcaption>Oticon Reveal</figcaption></figure>
+        <figure data-a="up" data-t="0.35" data-d="1.2"><img src="assets/img/phonak-eon.webp" alt=""><figcaption>Phonak EON Sphere</figcaption></figure>
+        <figure data-a="up" data-t="0.5" data-d="1.2"><img src="assets/img/signia-max.webp" alt="" style="height:260px"><figcaption>Signia MaX</figcaption></figure>
+      </div>
+      <div class="h2"><span class="ln"><i data-a="rise" data-t="1.2">Schon jetzt probetragen.</i></span><span class="ln"><i data-a="rise" data-t="1.35"><em class="g">In Köln-Lindenthal.</em></i></span></div>
+      <div class="brands" data-a="track" data-t="2.8" data-ls="0.3">Herstellerunabhängig <b>·</b> Oticon <b>·</b> Phonak <b>·</b> Signia <b>·</b> Starkey <b>·</b> Widex</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STING → Philosophie ═══════════════ -->
+  <section class="scene" data-id="st2" data-hook="sting" data-dur="6.5" data-out="blur" data-flash="0" data-sweep="2.0">
+    <img class="sting-logo" data-a="blur" data-t="0.2" data-d="1.4" data-o="2.9" data-oa="shrink" data-od="0.6" src="assets/logo/HAL_Logo_3D_transparent.png" alt="">
+    <div class="chap">
+      <div class="chap-num" data-a="track" data-t="3.2" data-ls="0.02">02</div>
+      <span class="lbl" data-a="fade" data-t="3.5">Unsere Philosophie</span>
+      <div class="h1"><span class="ln"><i data-a="rise" data-t="3.7">Wir hören <em class="g">zuerst zu.</em></i></span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KAPITEL 2: Philosophie ═══════════════ -->
+  <section class="scene" data-id="p1" data-dur="10" data-chapter="2" data-bg="rings">
+    <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
+      <span class="lbl" data-a="left" data-t="0.3">Was viele nicht wissen</span>
+      <span class="rule" data-a="grow" data-t="0.5" style="margin:30px 0 40px"></span>
+      <div class="h1">
+        <span class="ln"><i data-a="rise" data-t="0.6">Hörgeräte haben sich enorm</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.75">weiterentwickelt – und sind doch</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.9"><em class="g">nur ein Teil</em> Ihrer Hörversorgung.</i></span>
+      </div>
+      <p class="sub" style="margin-top:46px;max-width:1350px" data-a="up" data-t="2.6">Genauso wichtig wie das Gerät selbst ist die Anpassung an Ihre persönliche Klangwelt. Ohne sie bleibt auch ein sehr gutes Hörgerät hinter seinen Möglichkeiten.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-id="p2" data-dur="12" data-chapter="2">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Ein Gedankenexperiment</span>
+      <div class="h2" style="margin-top:22px">
+        <span class="ln"><i data-a="rise" data-t="0.4">Stellen Sie sich vor, jeder Mensch</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.55">bekäme Schuhe <em class="g">in derselben Größe.</em></i></span>
+      </div>
+    </div>
+    <div id="sizes"></div>
+    <div class="p-uni" data-a="track" data-t="4.7" data-d="1.3" data-ls="0.12"><span class="g" style="font-style:normal">Einheitsgröße</span></div>
+    <div class="abs" style="left:150px;right:150px;top:760px;text-align:center">
+      <div class="h3">
+        <span class="ln"><i data-a="rise" data-t="6.6">Genau so werden die meisten Hörgeräte eingestellt:</i></span>
+        <span class="ln"><i data-a="rise" data-t="6.8">nach <em class="g">statistischen Standardformeln.</em></i></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="p3" data-dur="11" data-chapter="2">
+    <div class="abs" style="left:150px;top:165px;width:860px">
+      <span class="lbl" data-a="left" data-t="0.2">Kennen Sie das?</span>
+      <div class="h2" style="margin-top:22px"><span class="ln"><i data-a="rise" data-t="0.4">Wenn die Einstellung</i></span><span class="ln"><i data-a="rise" data-t="0.52"><em class="g">nicht passt:</em></i></span></div>
+      <div class="p-list">
+        <div class="p-item" data-a="left" data-t="1.2"><i></i><div><div class="h3">Zu laut.</div><span class="txt">Geräusche klingen verzerrt und ermüdend.</span></div></div>
+        <div class="p-item" data-a="left" data-t="2.8"><i></i><div><div class="h3">Zu leise.</div><span class="txt">Gespräche bleiben anstrengend.</span></div></div>
+        <div class="p-item" data-a="left" data-t="4.4"><i></i><div><div class="h3">Hart und metallisch.</div><span class="txt">Statt natürlich und warm.</span></div></div>
+        <div class="p-item" data-a="left" data-t="6.0"><i></i><div><div class="h3">Hallend und fremd.</div><span class="txt">Das Tragen wird zur Last.</span></div></div>
+      </div>
+    </div>
+    <div class="abs" style="left:1060px;width:710px;top:730px">
+      <div class="h3" style="font-size:46px"><span class="ln"><i data-a="rise" data-t="7.6">Nicht das Gerät ist schlecht –</i></span><span class="ln"><i data-a="rise" data-t="7.75"><em class="g">die Einstellung passt nicht zu Ihnen.</em></i></span></div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="p4" data-dur="11" data-chapter="2" data-bg="rings">
+    <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
+      <span class="lbl" data-a="left" data-t="0.3">Unser Ansatz</span>
+      <div class="h1" style="margin-top:26px;font-size:88px">
+        <span class="ln"><i data-a="rise" data-t="0.5">Wir arbeiten anders.</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.65"><em class="g">Ihre Wahrnehmung</em> steht im Mittelpunkt.</i></span>
+      </div>
+      <p class="sub" style="margin-top:30px" data-a="up" data-t="1.8">Wir informieren und hören zu – bevor wir messen.</p>
+      <div class="cols">
+        <div class="col" data-a="up" data-t="3.0"><span class="n">01</span><div class="h3">Natürlicher Klang</div><p class="txt">von Anfang an</p></div>
+        <div class="col" data-a="up" data-t="3.4"><span class="n">02</span><div class="h3">Kürzere Gewöhnung</div><p class="txt">weniger Einstellungstermine</p></div>
+        <div class="col" data-a="up" data-t="3.8"><span class="n">03</span><div class="h3">Mehr Lebensqualität</div><p class="txt">im Alltag spürbar</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="p5" data-dur="9" data-chapter="2">
+    <div class="abs" style="left:150px;right:150px;top:180px;text-align:center">
+      <span class="lbl" data-a="track" data-t="0.2" data-ls="0.25">Inhabergeführt · herstellerunabhängig</span>
+      <div class="h2" style="margin-top:24px"><span class="ln"><i data-a="rise" data-t="0.5">Wir wählen das Gerät,</i></span><span class="ln"><i data-a="rise" data-t="0.65">das zu <em class="g">Ihrem Hören</em> passt.</i></span></div>
+    </div>
+    <div class="marquee" id="marquee" data-a="fade" data-t="1.2" data-d="1.2"><span>Oticon <b>·</b></span><span>Phonak <b>·</b></span><span>Signia <b>·</b></span><span>Starkey <b>·</b></span><span>Widex <b>·</b></span><span>Oticon <b>·</b></span><span>Phonak <b>·</b></span><span>Signia <b>·</b></span><span>Starkey <b>·</b></span><span>Widex <b>·</b></span></div>
+    <div class="abs" style="left:150px;right:150px;top:800px;text-align:center">
+      <p class="sub" data-a="up" data-t="2.6">Kein Filialist, keine Herstellerbindung – ein Fachgeschäft aus Köln.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STING → Audiophil ═══════════════ -->
+  <section class="scene" data-id="st3" data-hook="sting" data-dur="6.5" data-out="blur" data-flash="0" data-sweep="2.0">
+    <img class="sting-logo" data-a="blur" data-t="0.2" data-d="1.4" data-o="2.9" data-oa="shrink" data-od="0.6" src="assets/logo/HAL_Logo_3D_transparent.png" alt="">
+    <div class="chap">
+      <div class="chap-num" data-a="track" data-t="3.2" data-ls="0.02">03</div>
+      <span class="lbl" data-a="fade" data-t="3.5">Audiophile Anpassung</span>
+      <div class="h1"><span class="ln"><i data-a="rise" data-t="3.7">Hören ist mehr <em class="g">als Sprache.</em></i></span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KAPITEL 3: Audiophil ═══════════════ -->
+  <section class="scene" data-id="a1" data-dur="9" data-chapter="3" data-bg="waves">
+    <div class="pad" style="display:flex;flex-direction:column;justify-content:center;padding-bottom:140px">
+      <span class="lbl" data-a="left" data-t="0.3"><span class="eq" data-eq><i></i><i></i><i></i><i></i><i></i></span>Hörgeräte für Audiophile</span>
+      <div class="h1" style="margin-top:30px">
+        <span class="ln"><i data-a="rise" data-t="0.6">Hörgeräte sind für Sprache gebaut.</i></span>
+        <span class="ln"><i data-a="rise" data-t="1.3"><em class="g">Ihre Anlage nicht.</em></i></span>
+      </div>
+      <p class="sub" style="margin-top:40px;max-width:1300px" data-a="up" data-t="2.6">Für alle, für die Hören mehr ist als Sprache: Musikliebhaber, HiFi-Hörer, Musiker.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-id="a2" data-dur="12" data-chapter="3">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Frequenzbereich</span>
+      <div class="h2" style="margin-top:22px">
+        <span class="ln"><i data-a="rise" data-t="0.4">Sprache braucht einen Ausschnitt.</i></span>
+        <span class="ln"><i data-a="rise" data-t="5.6">Musik braucht <em class="g">das ganze Spektrum.</em></i></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="a3" data-dur="11" data-chapter="3">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Dynamik</span>
+      <div class="h2" style="margin-top:22px">
+        <span class="ln"><i data-a="rise" data-t="0.4">Eine Sprachanpassung drückt Musik platt.</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.55">Wir erhalten <em class="g">Raum und Wucht.</em></i></span>
+      </div>
+    </div>
+    <div class="crest" style="left:150px" data-a="up" data-t="1.6"><span>Mit Sprachanpassung</span><b>Dynamik <em>plattgedrückt</em></b></div>
+    <div class="crest" style="left:1010px" data-a="up" data-t="2.4"><span>Mit audiophiler Anpassung</span><b>Dynamik <em class="g">bleibt erhalten</em></b></div>
+  </section>
+
+  <section class="scene" data-id="a4" data-dur="10" data-chapter="3" data-bg="waves">
+    <div class="center" style="padding:0 200px 120px">
+      <div class="quote-mark" data-a="pop" data-t="0.2">“</div>
+      <div class="h2" style="font-size:76px">
+        <span class="ln"><i data-a="rise" data-t="0.6">Das beste Hörgerät mit Sprach-Einstellung</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.75">ist wie ein Referenz-Verstärker</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.9">mit gedrückter <em class="g">Loudness-Taste.</em></i></span>
+      </div>
+      <span class="rule c" data-a="grow" data-t="2.4" style="margin-top:50px"></span>
+    </div>
+  </section>
+
+  <section class="scene" data-id="a5" data-dur="11" data-chapter="3" data-bg="waves">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Unsere audiophile Anpassung</span>
+      <div class="h2" style="margin-top:22px"><span class="ln"><i data-a="rise" data-t="0.4">Gemessen. Gehört. <em class="g">Vor Ort.</em></i></span></div>
+      <div class="grid4">
+        <div data-a="up" data-t="1.4"><div class="h3">Gemessen</div><p class="txt">Ihre individuelle Lautheit mit trueLOUDNESS – statt Standardformel</p></div>
+        <div data-a="up" data-t="1.9"><div class="h3">Gehört</div><p class="txt">Hörsessions mit Ihren eigenen Referenzaufnahmen</p></div>
+        <div data-a="up" data-t="2.4"><div class="h3">Vor Ort</div><p class="txt">Feinjustierung an Ihrer Anlage – persönlich oder per Fernanpassung</p></div>
+        <div data-a="up" data-t="2.9"><div class="h3">Widex &amp; Oticon</div><p class="txt">Hersteller, bei denen Musik ganz oben steht</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STING → Lautheit ═══════════════ -->
+  <section class="scene" data-id="st4" data-hook="sting" data-dur="6.5" data-out="blur" data-flash="0" data-sweep="2.0">
+    <img class="sting-logo" data-a="blur" data-t="0.2" data-d="1.4" data-o="2.9" data-oa="shrink" data-od="0.6" src="assets/logo/HAL_Logo_3D_transparent.png" alt="">
+    <div class="chap">
+      <div class="chap-num" data-a="track" data-t="3.2" data-ls="0.02">04</div>
+      <span class="lbl" data-a="fade" data-t="3.5">trueLOUDNESS &amp; RevoLoud</span>
+      <div class="h1"><span class="ln"><i data-a="rise" data-t="3.7">Ihr Hören. <em class="g">Gemessen.</em></i></span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KAPITEL 4: Lautheit ═══════════════ -->
+  <section class="scene" data-id="t1" data-dur="12" data-chapter="4">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Jeder hört anders</span>
+      <div class="h2" style="margin-top:22px">
+        <span class="ln"><i data-a="rise" data-t="0.4">Gleiches Audiogramm.</i></span>
+        <span class="ln"><i data-a="rise" data-t="5.4"><em class="g">Völlig anderes</em> Lautheitsempfinden.</i></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="t2" data-dur="12" data-chapter="4">
+    <div class="abs" style="left:150px;top:165px;width:1060px">
+      <span class="lbl" data-a="left" data-t="0.2">Die Methode</span>
+      <div class="h2" style="margin-top:22px"><span class="ln"><i data-a="rise" data-t="0.4">Die weltweit erste</i></span><span class="ln"><i data-a="rise" data-t="0.55"><em class="g">individuelle Lautheitsanpassung.</em></i></span></div>
+      <p class="txt" style="margin-top:28px" data-a="up" data-t="1.6">Auf Basis der Forschung des Hörzentrums Oldenburg: Wir messen nicht nur Ihre Hörschwelle, sondern wie laut Sie Klänge tatsächlich empfinden.</p>
+    </div>
+    <div class="abs" style="right:150px;top:190px" data-a="zoom" data-t="0.8" data-d="1.2">
+      <div class="card-creme">
+        <img src="assets/logo/trueloudness.webp" alt="trueLOUDNESS" style="height:150px">
+        <span class="sep"></span>
+        <div class="ctext"><b>In Zusammenarbeit mit</b><img src="assets/logo/acousticon.webp" alt="Acousticon" style="height:52px;margin-top:8px"></div>
+      </div>
+    </div>
+    <div class="scale" data-a="up" data-t="2.6">
+      <div class="scale-cursor" id="scaleCursor"><span id="scaleName">leise</span><i></i></div>
+      <div class="scale-bar" id="scaleBar"><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div></div>
+      <div class="scale-lbls"><span>nicht gehört</span><span>sehr leise</span><span>leise</span><span>mittel</span><span>laut</span><span>sehr laut</span><span>zu laut</span></div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="t3" data-dur="11" data-chapter="4">
+    <div class="abs" style="left:150px;top:165px;width:880px">
+      <img src="assets/logo/revoloud.webp" alt="RevoLoud" style="height:118px;display:block" data-a="wipe" data-t="0.3" data-d="1.2">
+      <div class="h2" style="margin-top:40px">
+        <span class="ln"><i data-a="rise" data-t="1.0">Sichtbar machen,</i></span>
+        <span class="ln"><i data-a="rise" data-t="1.15">was klassische Tests</i></span>
+        <span class="ln"><i data-a="rise" data-t="1.3"><em class="g">nicht erfassen.</em></i></span>
+      </div>
+      <p class="txt" style="margin-top:30px" data-a="up" data-t="2.4">Ihre individuelle Lautheit als Bild – die Grundlage für eine präzise Feinanpassung statt Einstellen nach Gefühl.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-id="t4" data-dur="8" data-chapter="4" data-bg="rings">
+    <div class="center" style="padding-bottom:40px">
+      <span class="lbl" data-a="track" data-t="0.2" data-ls="0.25">Das Ergebnis</span>
+      <div class="result-line" style="margin-top:30px">
+        <span class="ln"><i data-a="rise" data-t="0.5">Natürlicherer Klang.</i></span>
+        <span class="ln"><i data-a="rise" data-t="1.1"><em class="g">Weniger Hörstress.</em></i></span>
+      </div>
+      <p class="sub" style="margin-top:44px" data-a="up" data-t="2.2">trueLOUDNESS und RevoLoud – bei uns in Köln-Lindenthal.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STING → Handwerk ═══════════════ -->
+  <section class="scene" data-id="st5" data-hook="sting" data-dur="6.5" data-out="blur" data-flash="0" data-sweep="2.0">
+    <img class="sting-logo" data-a="blur" data-t="0.2" data-d="1.4" data-o="2.9" data-oa="shrink" data-od="0.6" src="assets/logo/HAL_Logo_3D_transparent.png" alt="">
+    <div class="chap">
+      <div class="chap-num" data-a="track" data-t="3.2" data-ls="0.02">05</div>
+      <span class="lbl" data-a="fade" data-t="3.5">Höchste Handwerksqualität</span>
+      <div class="h1"><span class="ln"><i data-a="rise" data-t="3.7">Gemacht <em class="g">für Ihr Ohr.</em></i></span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KAPITEL 5: Handwerk ═══════════════ -->
+  <section class="scene" data-id="h1" data-dur="11" data-chapter="5">
+    <div class="abs" style="left:150px;top:0;height:1080px;width:880px;display:flex;flex-direction:column;justify-content:center">
+      <span class="lbl" data-a="left" data-t="0.3">Eigene Fertigung</span>
+      <div class="h1" style="margin-top:28px">
+        <span class="ln"><i data-a="rise" data-t="0.5">Unsere Otoplastiken.</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.65"><em class="g">Hier im Haus</em></i></span>
+        <span class="ln"><i data-a="rise" data-t="0.8"><em class="g">gefertigt.</em></i></span>
+      </div>
+      <p class="sub" style="margin-top:40px" data-a="up" data-t="2.2">Vom Abdruck bis zum fertigen Stück – in unserer eigenen Werkstatt.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-id="h2" data-dur="12" data-chapter="5">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Audiologisch das Bestmögliche</span>
+      <div class="h2" style="margin-top:22px"><span class="ln"><i data-a="rise" data-t="0.4">Wir fertigen die Otoplastik,</i></span><span class="ln"><i data-a="rise" data-t="0.55">die <em class="g">zu Ihrem Ohr</em> passt.</i></span></div>
+      <div class="props">
+        <div class="prop" data-a="up" data-t="1.4"><div class="h3">So klein wie möglich</div><p class="txt">diskret und kaum sichtbar</p></div>
+        <div class="prop" data-a="up" data-t="1.7"><div class="h3">Atmungsaktiv</div><p class="txt">angenehm auch bei langer Tragedauer</p></div>
+        <div class="prop" data-a="up" data-t="2.0"><div class="h3">Okklusionsfrei</div><p class="txt">die eigene Stimme klingt natürlich</p></div>
+        <div class="prop" data-a="up" data-t="2.3"><div class="h3">Perfekter Sitz</div><p class="txt">nach Ihrem individuellen Abdruck</p></div>
+        <div class="prop" data-a="up" data-t="2.6"><div class="h3">Akustisch abgestimmt</div><p class="txt">passend zu Hörgerät und Hörverlust</p></div>
+        <div class="prop" data-a="up" data-t="2.9"><div class="h3">Hautfreundlich</div><p class="txt">Materialien auch für empfindliche Ohren</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="h3" data-dur="12" data-chapter="5" data-bg="rings">
+    <div class="abs" style="left:150px;top:0;height:1080px;width:820px;display:flex;flex-direction:column;justify-content:center">
+      <span class="lbl" data-a="left" data-t="0.3">Design &amp; Schmuck</span>
+      <div class="h1" style="margin-top:28px">
+        <span class="ln"><i data-a="rise" data-t="0.5">Oder ein</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.65"><em class="g">Schmuckstück</em></i></span>
+        <span class="ln"><i data-a="rise" data-t="0.8">aus Titan.</i></span>
+      </div>
+      <p class="txt" style="margin-top:34px" data-a="up" data-t="2.0">Design- und Schmuck-Otoplastiken aus Titan: hypoallergen, leicht und formstabil – mit Steinen, poliert oder matt.</p>
+      <div style="display:flex;align-items:center;gap:26px;margin-top:40px" data-a="up" data-t="2.8">
+        <span class="lbl" style="font-size:20px;color:rgba(232,226,216,.7)">Gefertigt von</span>
+        <img class="hl-logo" src="assets/logo/hoerluchs.svg" alt="Hörluchs">
+      </div>
+    </div>
+    <div class="car" id="carousel">
+      <img src="assets/img/schmuck-weiss.webp" alt="">
+      <img src="assets/img/schmuck-rose.webp" alt="">
+      <img src="assets/img/titan-hero.webp" alt="" style="width:520px;margin-left:-260px;margin-top:-260px">
+      <img src="assets/img/schmuck-bunt.webp" alt="">
+      <img src="assets/img/schmuck-iceblue.webp" alt="">
+    </div>
+  </section>
+
+  <section class="scene" data-id="h4" data-dur="12" data-chapter="5">
+    <div class="abs" style="left:150px;right:150px;top:165px">
+      <span class="lbl" data-a="left" data-t="0.2">Gehörschutz nach Maß</span>
+      <div class="h2" style="margin-top:22px"><span class="ln"><i data-a="rise" data-t="0.4">Auch Gehörschutz fertigen wir</i></span><span class="ln"><i data-a="rise" data-t="0.55"><em class="g">hier im Haus.</em></i></span></div>
+      <div class="tiles">
+        <div class="tile" data-a="up" data-t="1.3">
+          <svg viewBox="0 0 96 96"><path pathLength="1" data-a="draw" data-t="1.6" data-d="1.4" d="M60 12a36 36 0 1 0 24 56A30 30 0 0 1 60 12z"/><path pathLength="1" data-a="draw" data-t="2.4" data-d="0.6" d="M78 22v10M73 27h10"/><path pathLength="1" data-a="draw" data-t="2.6" data-d="0.6" d="M86 44v6M83 47h6"/></svg>
+          <div class="h3">Schlafen</div><p class="txt">Für ruhige Nächte – angenehm auch in Seitenlage.</p>
+        </div>
+        <div class="tile" data-a="up" data-t="1.6">
+          <svg viewBox="0 0 96 96"><path pathLength="1" data-a="draw" data-t="1.9" data-d="1.4" d="M36 72V24l40-10v48"/><path pathLength="1" data-a="draw" data-t="2.3" data-d="1" d="M36 36l40-10"/><path pathLength="1" data-a="draw" data-t="2.6" data-d="1" d="M36 72a10 8 0 1 1-20 0a10 8 0 1 1 20 0z"/><path pathLength="1" data-a="draw" data-t="2.8" data-d="1" d="M76 62a10 8 0 1 1-20 0a10 8 0 1 1 20 0z"/></svg>
+          <div class="h3">Musik</div><p class="txt">Musikgenuss ohne Reue: Lineare Filter dämpfen gleichmäßig, der Klang bleibt unverfälscht.</p>
+        </div>
+        <div class="tile" data-a="up" data-t="1.9">
+          <svg viewBox="0 0 96 96"><path pathLength="1" data-a="draw" data-t="2.2" data-d="1.2" d="M48 8C38 22 32 30 32 38a16 16 0 0 0 32 0c0-8-6-16-16-30z"/><path pathLength="1" data-a="draw" data-t="2.6" data-d="1.2" d="M6 70c7-6 14-6 21 0s14 6 21 0 14-6 21 0 14 6 21 0"/><path pathLength="1" data-a="draw" data-t="2.9" data-d="1.2" d="M6 84c7-6 14-6 21 0s14 6 21 0 14-6 21 0 14 6 21 0"/></svg>
+          <div class="h3">Schwimmen</div><p class="txt">Wasserdichter Schutz nach Maß – gegen das Schwimmerohr.</p>
+        </div>
+        <div class="tile" data-a="up" data-t="2.2">
+          <svg viewBox="0 0 96 96"><path pathLength="1" data-a="draw" data-t="2.5" data-d="1.4" d="M12 70a36 36 0 1 1 72 0"/><path pathLength="1" data-a="draw" data-t="3.0" data-d="0.8" d="M20 46l6 4M48 32v8M76 46l-6 4"/><path pathLength="1" data-a="draw" data-t="3.3" data-d="0.8" d="M48 70l20-24"/><path pathLength="1" data-a="draw" data-t="3.4" data-d="0.6" d="M43 70a5 5 0 1 0 10 0a5 5 0 1 0-10 0z"/></svg>
+          <div class="h3">Motorrad &amp; Lärm</div><p class="txt">Dämpft Wind und Lärm, lässt Verkehr und Gespräche durch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-id="h5" data-dur="7" data-chapter="5" data-bg="rings" data-sweep="4.6">
+    <div class="center" style="padding-bottom:30px">
+      <div class="h0">
+        <span class="ln"><i data-a="rise" data-t="0.3">Alles hier gefertigt.</i></span>
+        <span class="ln"><i data-a="rise" data-t="0.9"><em class="g">In Köln-Lindenthal.</em></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ OUTRO ═══════════════ -->
+  <section class="scene" data-id="outro" data-dur="16" data-out="fade" data-flash="0" data-sweep="12.8">
+    <div class="logo-wrap" id="outroLogo"><img class="logo-big" src="assets/logo/HAL_Logo_3D_transparent.png" alt="Hörakustik Lindenthal – Aus Köln. Für Köln."></div>
+    <div class="vline" style="left:985px;top:300px;height:480px" data-a="growy" data-t="4.2" data-d="1.4"></div>
+    <div class="outro-info">
+      <span class="lbl" data-a="left" data-t="4.6">Besuchen Sie uns</span>
+      <div class="h2" style="margin-top:26px">
+        <span class="ln"><i data-a="rise" data-t="4.8">Dürener Str. 192</i></span>
+        <span class="ln"><i data-a="rise" data-t="4.95">50931 Köln-Lindenthal</i></span>
+      </div>
+      <div class="outro-phone"><span class="ln"><i data-a="rise" data-t="5.6"><span class="g" style="font-style:normal">0221 201 999 54</span></i></span></div>
+      <div class="outro-web" data-a="up" data-t="6.0">ha-lindenthal.de</div>
+      <div class="cta" data-a="wipe" data-t="6.8" data-d="1.0"><i></i>Termin vereinbaren – auch zum Probetragen</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ Kopf/Fuß, Overlays ═══════════════ -->
+  <div id="chrome">
+    <div class="ch-top">
+      <div class="ch-label"><b id="chNum">01</b><i></i><span id="chName">Siegeszug der KI</span></div>
+      <div class="ch-steps" id="chSteps"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+    </div>
+    <div class="ch-bottom">
+      <div class="ch-logo"><span class="ch-line"></span><img src="assets/logo/HAL_Logo_quer_3D_transparent.png" alt="Hörakustik Lindenthal"></div>
+      <div class="ch-addr">Dürener Str. 192 · 50931 Köln-Lindenthal · ha-lindenthal.de</div>
+    </div>
+  </div>
+  <div id="flash"></div>
+  <div id="sweep"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+</div>
+
+<div id="help"><b>Leertaste</b> Pause · <b>← →</b> Szene · <b>1–5</b> Kapitel · <b>0</b> Anfang · <b>F</b> Vollbild · <b>H</b> Hilfe aus</div>
+
+<script src="film.js"></script>
+</body>
+</html>
